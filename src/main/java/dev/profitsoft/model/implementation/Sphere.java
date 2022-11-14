@@ -1,18 +1,16 @@
 package dev.profitsoft.model.implementation;
 
 import dev.profitsoft.model.Shape;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
-import java.util.Objects;
-
+@Getter
+@EqualsAndHashCode
 public class Sphere implements Shape {
     private int r;
 
     public Sphere(int r) {
         setR(r);
-    }
-
-    public int getR() {
-        return r;
     }
 
     public void setR(int r) {
@@ -25,18 +23,5 @@ public class Sphere implements Shape {
     @Override
     public double getVolume() {
         return (4/3.) * Math.PI * r * r * r;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Sphere sphere = (Sphere) o;
-        return r == sphere.r;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(r);
     }
 }
